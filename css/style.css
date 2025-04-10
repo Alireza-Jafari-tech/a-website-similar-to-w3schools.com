@@ -1,0 +1,995 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  direction: ltr;
+  /* font-family: ; */
+}
+
+:root {
+  --light-green-color: #04aa6d;
+  --light-yellow-color: #e7de96;
+  --light-blue-color: #88c1c2;
+  --lighter-blue-color: #c5d9ce;
+  --light-black-color: #0d1721;
+  --white-color: #ffffff;
+  --darker-white-color: #dcd6d6;
+  --dark-blue-color: #282a35;
+  --black-color: #000000;
+  --light-pink-color: #e7afb6;
+  --alternate-pink-color: #ffc0c7;
+  --grey-color: #dddddd;
+  --yellow-link-color: #fff4a3;
+}
+
+a {
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  padding: 16px 70px;
+  width: 100%;
+  font-size: 16px;
+  white-space: nowrap;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/*-------------------header start-------------------*/
+
+#top-nav-bar {
+  position: sticky;
+  top: t0px;
+  z-index: 1000;
+}
+
+#page-top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1d2a35;
+  padding: 0 10px;
+}
+
+#tnb-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#tnb-logo i {
+  color: var(--light-green-color);
+}
+
+#tnb-desktop {
+}
+
+#tnb-desktop > ul {
+}
+
+#tnb-desktop > ul > li {
+  display: inline-block;
+  padding: 20px 25px;
+}
+
+#tnb-desktop > ul > li:hover {
+  background-color: var(--light-green-color);
+}
+
+#tnb-desktop > ul > li > a {
+  color: var(--grey-color);
+  font-size: 17px;
+}
+
+#tnb-desktop > ul > li:hover > a {
+  color: var(--white-color);
+}
+
+#tnb-search-box {
+  position: relative;
+}
+
+#tnb-search-box input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 14px;
+  border: none;
+  outline: none;
+}
+
+#tnb-search-box input:focus {
+  border: 4px solid #00ab6c;
+}
+
+#tnb-search-box input::placeholder {
+  color: #757579;
+}
+#tnb-search-box a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+#tnb-search-box a:hover {
+  background-color: #f1f1f1;
+}
+
+#tnb-dark-mode-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#tnb-dark-mode-toggle a {
+  padding: 5px;
+  border-radius: 50%;
+}
+
+#tnb-dark-mode-toggle a:hover {
+  background-color: #313b45;
+}
+
+#tnb-right-section {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+#tnb-right-section > div:not(#tnb-login-section) {
+  padding: 10px;
+  border-radius: 25px;
+}
+
+#tnb-right-section > div:not(#tnb-login-section):hover {
+  background-color: #303d46;
+}
+
+#tnb-right-section > div:not(#tnb-login-section) a {
+  color: #b9bbbd;
+}
+
+#tnb-right-section > div i {
+  color: #9763f6;
+}
+
+#tnb-login-section,
+#tnb-login-section > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#tnb-login-section {
+  border-radius: 25px;
+  overflow: hidden;
+  background-color: #d9ede1;
+}
+
+#tnb-login-section #tnb-log-in-btn {
+  background-color: #d9ede1;
+  color: var(--light-green-color);
+}
+
+#tnb-log-in-btn a {
+  color: var(--black-color);
+}
+
+#tnb-login-section #tnb-sign-up-btn {
+  background-color: var(--light-green-color);
+  color: var(--white-color);
+  border-radius: inherit;
+}
+
+#tnb-sign-up-btn a {
+  color: var(--white-color);
+}
+
+#tnb-login-section a {
+  padding: 10px;
+}
+
+/*---------------drop down start------------------*/
+
+/* #tnb-desktop > ul > li > .sub-menu {
+  overflow: auto;
+  position: relative;
+} */
+
+#tnb-desktop .close {
+  position: absolute;
+}
+
+#tnb-desktop > ul > li:hover .tutorials-dropdown {
+  /* display: grid; */
+}
+
+.tutorials-dropdown {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 50px auto auto;
+  grid-row-gap: 30px;
+  /*---display should be grid-----*/
+  display: none;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 60px;
+  height: 100vh;
+  background-color: #282a35;
+  padding: 30px 100px;
+  overflow: auto;
+}
+
+/*---the input---*/
+.tutorials-dropdown > div:nth-child(2) {
+  grid-column-end: span 2;
+}
+
+.tutorials-dropdown input {
+  background-color: #454545;
+  color: var(--white-color);
+  border: 1px solid #6b6959;
+  border-radius: 25px;
+  outline: none;
+  position: relative;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 14px;
+  width: 50%;
+}
+
+.tutorials-dropdown input + i {
+  position: absolute;
+  top: 50%;
+  right: 50px;
+}
+
+.tutorials-dropdown input::placeholder {
+  font-weight: bold;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--white-color);
+}
+
+.tutorials-dropdown input:focus {
+  outline: 4px solid #04aa6d;
+}
+
+.tutorials-dropdown ul li {
+  margin-top: 8px;
+}
+
+.tutorials-dropdown ul li a {
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.tutorials-dropdown ul li a:first-of-type {
+  color: var(--white-color);
+}
+
+.tutorials-dropdown ul li a:first-of-type:hover {
+  background-color: #cccccc;
+  color: var(--black-color);
+}
+
+.tutorials-dropdown ul li a:not(:first-of-type),
+.tutorials-dropdown h1,
+.tutorials-dropdown h2 {
+  color: var(--light-yellow-color);
+}
+
+.tutorials-dropdown ul li a:not(:first-of-type):hover {
+  background-color: var(--light-green-color);
+  color: var(--white-color);
+}
+
+#web-building ul li {
+  color: var(--white-color);
+  padding: 6px;
+}
+
+#web-building ul li:hover {
+  background-color: #cccccc;
+  border-radius: 5px;
+}
+
+#web-building ul li:hover a {
+  color: var(--black-color);
+}
+
+/* two spans in web building sections */
+
+.tutorials-dropdown span {
+  border: 1px solid var(--black-color);
+  border-radius: 10px;
+  padding: 4px 9px;
+  color: var(--white-color);
+  font-size: 12px;
+}
+
+/*---------------drop down end------------------*/
+
+nav#tnb-courses-bar ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: auto;
+}
+
+#tnb-courses-bar ul li {
+  background-color: var(--dark-blue-color);
+  padding: 10px 15px;
+}
+
+#tnb-courses-bar ul li:hover {
+  background-color: #020a00;
+}
+
+#tnb-courses-bar ul li a {
+  color: #eaf1eb;
+}
+/*-----------------header end--------------------*/
+/*-----------------main start--------------------*/
+#main {
+}
+
+#main #first-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--dark-blue-color);
+  padding: 150px 0px;
+  position: relative;
+}
+
+#main section:not(#first-section) {
+  padding: 100px 0px;
+}
+
+#hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  width: 30%;
+}
+#hero h1 {
+  font-size: 60px;
+  color: var(--white-color);
+}
+
+#hero h3 {
+  color: var(--yellow-link-color);
+}
+
+#hero #hero-search-box {
+  position: relative;
+  border-radius: 25px;
+  width: 100%;
+  overflow: hidden;
+}
+
+#hero #hero-search-box input {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  outline: none;
+  font-size: 18px;
+}
+
+#hero #hero-search-box input::placeholder {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+#hero #hero-search-box i {
+  position: absolute;
+  right: 0;
+  background-color: var(--light-green-color);
+  color: var(--white-color);
+}
+
+#hero a {
+  color: var(--white-color);
+  text-decoration: underline 3px solid;
+  font-size: 25px;
+}
+
+#hero #hero-bottom-wave {
+  position: absolute;
+  bottom: 0;
+}
+
+#hero #hero-asternaut {
+  position: absolute;
+  top: 35%;
+  right: 150px;
+}
+
+.two-bar-showcase {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 150px;
+}
+
+.two-bar-showcase .tutorial-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.two-bar-showcase h2 {
+  font-size: 80px;
+  padding-bottom: 20px;
+  letter-spacing: 3px;
+}
+
+.two-bar-showcase .tutorial-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  width: 80%;
+  white-space: nowrap;
+}
+
+.two-bar-showcase .tutorial-links p {
+  font-size: 22px;
+}
+
+.two-bar-showcase.html {
+  background-color: var(--lighter-blue-color);
+}
+
+.two-bar-showcase.css {
+  background-color: var(--light-yellow-color);
+}
+
+.two-bar-showcase.javascript {
+  background-color: var(--light-black-color);
+}
+
+.javascript h2,
+.javascript p {
+  color: var(--white-color);
+}
+
+.javascript .tutorial-reference {
+  background-color: var(--white-color) !important;
+  color: var(--black-color);
+}
+.two-bar-showcase.python {
+  background-color: var(--darker-white-color);
+}
+.two-bar-showcase.sql {
+  background-color: var(--light-blue-color);
+}
+
+.two-bar-showcase button:not(.light-pink-color) {
+  color: var(--white-color);
+}
+
+.light-green-color {
+  background-color: var(--light-green-color);
+}
+
+.light-green-color:hover {
+  background-color: #059862;
+}
+
+/*-------------grid1 start-------------*/
+
+.grid1 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 80px;
+  grid-row-gap: 60px;
+  background-color: var(--light-black-color);
+  padding: 70px 50px !important;
+}
+
+.grid1 > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  padding: 30px;
+}
+
+.grid1 > div > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  width: 50%;
+}
+
+.grid1 > div > div h2 {
+  font-size: 40px;
+}
+
+.grid1 > div > div p {
+  font-size: 19px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.grid1 > div > div button {
+  background-color: var(--dark-blue-color);
+  color: var(--white-color);
+  margin-top: 30px;
+}
+
+.grid1 > div > div button:hover {
+  background-color: var(--black-color);
+}
+
+/*-------------grid1 end-------------*/
+/*-------------grid2 start-------------*/
+
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 80px;
+  grid-row-gap: 40px;
+  background-color: var(--light-black-color);
+  padding: 70px 50px !important;
+}
+
+.grid2 div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 45px;
+  border-radius: 5px;
+}
+
+.grid2 div h2 {
+  font-size: 30px;
+  white-space: nowrap;
+}
+
+.grid2 .span-two-columns {
+  grid-column-end: span 2;
+}
+
+.dark-blue-color {
+  background-color: var(--dark-blue-color);
+}
+
+:not(.grid1 div).dark-blue-color:hover {
+  background-color: var(--black-color);
+}
+
+.light-pink-color {
+  background-color: var(--alternate-pink-color);
+  color: var(--black-color);
+}
+
+:not(.grid1 div).light-pink-color:hover {
+  background-color: #ffb4bb;
+}
+
+.light-yellow-color {
+  background-color: var(--light-yellow-color);
+}
+
+:not(.grid1 div).light-yellow-color:hover {
+  background-color: #fff4a4;
+}
+
+.darker-white-color {
+  background-color: var(--darker-white-color);
+}
+
+:not(.grid1 div).darker-white-color:hover {
+  background-color: #f4ecea;
+}
+
+.light-blue-color {
+  background-color: var(--light-blue-color);
+}
+
+:not(.grid1 div).light-blue-color:hover {
+  background-color: #96d4d3;
+}
+
+.lighter-blue-color {
+  background-color: var(--lighter-blue-color);
+}
+
+:not(.grid1 div).lighter-blue-color:hover {
+  background-color: #d9ede1;
+}
+
+/*-------------grid2 end-------------*/
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.header {
+  font-size: 60px;
+}
+
+.description {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.green-button {
+  background-color: var(--light-green-color);
+  color: var(--white-color);
+  font-size: 17px;
+  width: 35%;
+}
+
+.green-button:hover {
+  background-color: #059560;
+}
+
+.black-button {
+  background-color: var(--dark-blue-color);
+  color: var(--white-color);
+}
+
+.black-button:hover {
+  background-color: var(--black-color);
+} /*--these style for h2 and p is repeated in sections below----*/
+
+/*-------------code-editor start----------*/
+
+#code-editor {
+  background-color: var(--light-black-color);
+}
+
+#code-editor h2 {
+  color: var(--white-color);
+}
+
+#code-editor p {
+  color: var(--white-color);
+  font-size: 21px;
+}
+
+#code-editor img {
+  margin-top: 40px;
+}
+
+#code-editor button {
+  align-self: flex-start;
+  width: 38%;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#code-editor button:first-of-type {
+  background-color: var(--light-green-color);
+  color: var(--white-color);
+}
+
+#code-editor button:first-of-type:hover {
+  background-color: #059862;
+}
+
+#code-editor button:last-of-type {
+  background-color: var(--light-yellow-color);
+  color: var(--black-color);
+}
+
+#code-editor button:last-of-type:hover {
+  background-color: #ffef7e;
+}
+
+/*-------------code-editor start----------*/
+
+/*-------------spaces start---------------*/
+
+#spaces {
+  background-color: var(--light-black-color);
+  padding-top: 20px !important;
+}
+
+#spaces h2 {
+  color: var(--white-color);
+}
+
+#spaces p {
+  color: var(--white-color);
+  white-space: break-spaces;
+}
+
+#spaces div a {
+  color: #fabcc3;
+  text-decoration: underline 2px solid;
+}
+
+#spaces img {
+  margin: 40px 0px;
+}
+
+/*-------------spaces end---------------*/
+
+/*-------------track-learning start---------------*/
+
+#track-learning {
+  background-color: #d9eee1;
+}
+
+/*-------------track-learning end---------------*/
+
+/*-------------plus-user start---------------*/
+
+#plus-user {
+  background-color: var(--light-black-color);
+}
+
+#plus-user h2,
+#plus-user p {
+  color: var(--white-color);
+}
+
+#plus-user div > p {
+  color: var(--alternate-pink-color);
+}
+
+#plus-user ul {
+  list-style-image: url("images/list-style-image.png");
+}
+
+#plus-user li {
+  margin-bottom: 5px;
+}
+
+/*-------------plus-user end---------------*/
+
+/*-------------color-picker start---------------*/
+
+#color-picker {
+  background-color: #f3ecea;
+}
+/*-------------color-picker end---------------*/
+
+/*-------------code-game start---------------*/
+
+#code-game {
+  background-color: #96d4d3;
+}
+
+/*-------------code-game end---------------*/
+
+/*-------------exercises-quizzes start---------------*/
+
+#exercises {
+  flex-direction: column;
+  gap: 10px;
+  background-color: var(--light-black-color);
+  padding: 100px 90px !important;
+}
+
+#exercises h2,
+#exercises > p {
+  color: var(--white-color);
+}
+
+#exercises #exercises-quizzes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 120px;
+  margin-top: 40px;
+  width: 100%;
+}
+
+#exercises-quizzes div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 90px;
+  border-radius: 5px;
+}
+
+#exercises-quizzes div p {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+#exercises-quizzes div:first-child {
+  color: var(--white-color);
+}
+
+#exercises-quizzes div:last-child {
+  color: var(--black-color);
+}
+#exercises-quizzes div:last-child:hover {
+  background-color: #fff4a4;
+}
+
+/*-------------exercises-quizzes end---------------*/
+
+/*-------------web-templates start---------------*/
+
+#web-templates {
+  background-color: #38444d;
+}
+#web-templates h2,
+#web-templates p {
+  color: var(--grey-color);
+}
+
+#web-templates button {
+  background-color: #282a35;
+  color: var(--white-color);
+}
+
+#web-templates button:hover {
+  background-color: var(--black-color);
+}
+
+/*-------------web-templates end---------------*/
+
+/*-------------certificate start---------------*/
+
+#certificate {
+  flex-direction: column;
+  gap: 30px;
+  padding: 100px 40px !important;
+  background-color: var(--light-black-color);
+}
+
+#certificate * {
+  align-self: start;
+}
+
+#certificate h2 {
+  font-size: 52px;
+  color: var(--alternate-pink-color);
+}
+
+/*-------------certificate end---------------*/
+
+/*-------------how-to start---------------*/
+
+#how-to {
+  background-color: #1d2a35;
+}
+
+#how-to h2 {
+  color: var(--grey-color);
+}
+
+#how-to p {
+  color: var(--grey-color);
+}
+
+#how-to p:last-of-type {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#how-to button {
+  background-color: #0d1721;
+  color: var(--white-color);
+  width: 60%;
+}
+
+/*-------------how-to end---------------*/
+
+/*-----------------main end--------------------*/
+
+/*-------------footer start---------------*/
+
+#footer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 60px 1fr 1fr;
+  grid-column-gap: 100px;
+  background-color: #171921 !important;
+  background: url(images/footer-image.jpg);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  padding: 70px 120px;
+  height: 800px;
+}
+
+#footer #footer-nav {
+  grid-column-end: span 4;
+}
+
+#footer #footer-bottom {
+  grid-column-end: span 3;
+}
+
+#footer h4 {
+  margin-bottom: 20px;
+}
+
+#footer ul {
+  list-style-type: none;
+}
+
+#footer #footer-nav li,
+#footer #footer-bottom li {
+  display: inline-block;
+}
+
+#footer #footer-nav li {
+  margin-right: 50px;
+}
+
+#footer #footer-bottom li {
+  margin-right: 10px;
+}
+
+#footer li#logo a {
+  color: var(--white-color);
+}
+
+#footer #footer-nav a {
+  color: var(--yellow-link-color);
+}
+
+#footer #footer-nav a:hover {
+  text-decoration: underline 1px solid var(--yellow-link-color);
+}
+
+#footer *:not(#footer-nav a) {
+  color: var(--grey-color);
+}
+
+#footer a:hover {
+  color: var(--yellow-link-color) !important;
+}
+
+#footer .footer-nav-links a {
+  font-size: 13px;
+}
+
+#copy-writing {
+  font-size: 13px;
+}
+
+#copy-writing p:last-child {
+  padding-top: 15px;
+}
+
+#copy-writing p a {
+  text-decoration: underline 1px solid var(--grey-color);
+  font-size: inherit;
+}
+
+#copy-writing p a:hover {
+  text-decoration: underline 1px solid var(--yellow-link-color);
+}
+/*-------------footer end---------------*/
